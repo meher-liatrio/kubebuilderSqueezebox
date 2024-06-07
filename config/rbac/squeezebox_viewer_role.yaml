@@ -1,0 +1,23 @@
+# permissions for end users to view squeezeboxes.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: project
+    app.kubernetes.io/managed-by: kustomize
+  name: squeezebox-viewer-role
+rules:
+- apiGroups:
+  - squeeze.box.com.squeeze.box.com
+  resources:
+  - squeezeboxes
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - squeeze.box.com.squeeze.box.com
+  resources:
+  - squeezeboxes/status
+  verbs:
+  - get

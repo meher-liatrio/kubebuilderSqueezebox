@@ -1,0 +1,27 @@
+# permissions for end users to edit squeezeboxes.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: project
+    app.kubernetes.io/managed-by: kustomize
+  name: squeezebox-editor-role
+rules:
+- apiGroups:
+  - squeeze.box.com.squeeze.box.com
+  resources:
+  - squeezeboxes
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - squeeze.box.com.squeeze.box.com
+  resources:
+  - squeezeboxes/status
+  verbs:
+  - get
